@@ -1,7 +1,8 @@
+import Routing from '@/routes';
 import React from 'react';
 
 const App: React.FC = () => {
-  return <div>AAA</div>;
+  return <Routing />;
 };
 
 export default App;
