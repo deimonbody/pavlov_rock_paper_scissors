@@ -5,6 +5,7 @@ import theme from '@/myTheme.ts';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from '@/store/index.ts';
+import './styles.scss';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <ThemeProvider theme={theme}>
