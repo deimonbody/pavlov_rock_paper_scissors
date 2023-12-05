@@ -1,3 +1,4 @@
+import { socketHelperActions } from '@/helpers/socketActions.helper';
 import { selectUserName } from '@/store/game/selector';
 import { useAppSelector } from '@/store/hooks';
 import React, { useEffect, useState } from 'react';
@@ -14,6 +15,7 @@ const MainPageTemplate: React.FC = () => {
       },
     });
     setSocket(socketConnection);
+    socketHelperActions(socketConnection);
   }, []);
 
   return <div>main page</div>;
