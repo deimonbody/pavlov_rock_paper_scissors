@@ -28,6 +28,10 @@ io.on("connection", (socket) => {
       username,
     });
 
+    socket.on("restart_game", () => {
+      io.emit("start_game_again");
+    });
+
     socket.on("get_players", () => {
       io.emit(
         "players_received",

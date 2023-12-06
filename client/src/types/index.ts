@@ -1,14 +1,15 @@
-export enum PATHES {
-  AUTH = '/auth',
-  MAIN = '/',
-}
+import { PATHES } from './enums';
+import { UserStatus, UserСhoice, GameStatus, SocketTypeContext } from './type';
+import { IUserPartProps, IGame, IConnectedSocketAction, IGameFinishedSocketAction } from './interfaces';
 
-export type UserСhoice = 'rock' | 'paper' | 'scissors';
-export type UserStatus = 'waiting for game' | 'choosing' | 'waiting';
-
-export interface IUserPartProps {
-  count: number;
-  userName: string;
-  choice: UserСhoice | null;
-  userStatus: UserStatus;
-}
+export { PATHES };
+export type {
+  UserStatus,
+  UserСhoice,
+  GameStatus,
+  IUserPartProps,
+  IGame,
+  IConnectedSocketAction,
+  IGameFinishedSocketAction,
+  SocketTypeContext,
+};

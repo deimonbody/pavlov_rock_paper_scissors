@@ -1,5 +1,5 @@
 import { UserСhoice } from '@/types';
-import { Card, CardActionArea, CardMedia, CardContent } from '@mui/material';
+import { Card, CardActionArea, CardMedia, CardContent, SxProps } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import PaperSrc from '@/images/paper.png';
 import RockSrc from '@/images/rock.png';
@@ -9,9 +9,11 @@ import ThinkingSrc from '@/images/thinking.png';
 
 interface IProps {
   choice: UserСhoice | null;
+  styles?: SxProps;
+  height: string;
 }
 
-const UserChoiceCard: React.FC<IProps> = ({ choice }) => {
+const UserChoiceCard: React.FC<IProps> = ({ choice, styles, height }) => {
   const [text, setText] = useState('Waiting...');
   const [img, setImg] = useState(ThinkingSrc);
 
@@ -34,13 +36,16 @@ const UserChoiceCard: React.FC<IProps> = ({ choice }) => {
           break;
         }
       }
+    } else {
+      setText('Waiting...');
+      setImg(ThinkingSrc);
     }
   }, [choice]);
 
   return (
-    <Card sx={{ minWidth: 345 }}>
+    <Card sx={styles}>
       <CardActionArea>
-        <CardMedia component="img" height="220" image={img} sx={{ objectFit: 'contain' }} />
+        <CardMedia component="img" height={height} image={img} sx={{ objectFit: 'contain' }} />
         <CardContent>
           <ChoiceTextTitle>{text}</ChoiceTextTitle>
         </CardContent>

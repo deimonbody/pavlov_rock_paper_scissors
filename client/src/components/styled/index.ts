@@ -1,6 +1,12 @@
 import { AuthTitle, AuthInput, AuthButton } from './AuthPage.styled';
 import { MainLayoutWrapper, MainLayoutChildrenWrapper } from './MainLayout.styled';
-import { MainPageTitle, MainPageUserSubTitle, MainPageUserTitle } from './MainPage.styled';
+import {
+  MainPageTitle,
+  MainPageUserSubTitle,
+  MainPageUserTitle,
+  MainPartWrapper,
+  RestartButton,
+} from './MainPage.styled';
 
 export {
   MainLayoutWrapper,
@@ -11,4 +17,6 @@ export {
   MainPageTitle,
   MainPageUserTitle,
   MainPageUserSubTitle,
+  RestartButton,
+  MainPartWrapper,
 };
