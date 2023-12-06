@@ -1,24 +1,25 @@
-import { socketHelperActions } from '@/helpers/socketActions.helper';
-import { selectUserName } from '@/store/game/selector';
+import ChoiceModal from '@/components/modules/ChoiceModal';
+import { MainPageTitle } from '@/components/styled';
+import { selectIsOpenModal } from '@/store/game/selector';
 import { useAppSelector } from '@/store/hooks';
-import React, { useEffect, useState } from 'react';
-import { Socket, io } from 'socket.io-client';
+import { Stack } from '@mui/material';
+import React from 'react';
+import GamePart from '@/components/templates/Main/components/GamePart';
+
+import { SocketContextProvider } from '@/context/Socket.context';
 
 const MainPageTemplate: React.FC = () => {
-  const [socket, setSocket] = useState<Socket<any, any> | null>(null);
-  const userName = useAppSelector(selectUserName);
+  const isOpenModal = useAppSelector(selectIsOpenModal);
 
-  useEffect(() => {
-    const socketConnection = io(import.meta.env.VITE_SERVER_URL, {
-      query: {
-        username: userName || '',
-      },
-    });
-    setSocket(socketConnection);
-    socketHelperActions(socketConnection);
-  }, []);
-
-  return <div>main page</div>;
+  return (
+    <Stack flexGrow={1}>
+      <MainPageTitle>Rock Paper Scissors</MainPageTitle>
+      <SocketContextProvider>
+        <GamePart />
+        <ChoiceModal open={isOpenModal} />
+      </SocketContextProvider>
+    </Stack>
+  );
 };
 
 export default MainPageTemplate;
