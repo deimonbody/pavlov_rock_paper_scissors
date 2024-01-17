@@ -1,4 +1,4 @@
-# softcery_pavlov_test
+# rock_paper_scissors
 
 ## Used technology stack
 
